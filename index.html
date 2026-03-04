@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gedenk-Portal</title>
+
+    <!-- Tailwind CSS (für das Design) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+
+    <!-- PWA Einstellungen -->
+    <link id="manifest-link" rel="manifest" href="">
+    <meta name="theme-color" content="#f2ece5">
+
+    <style>
+        body {
+            background-color: #f2ece5;
+            color: #1c2331;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .font-serif-custom { font-family: 'Merriweather', serif; }
+        .card-shadow { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); }
+        ::-webkit-scrollbar { display: none; }
+        nav { pointer-events: auto !important; }
+        
+        /* Sanfter Hover-Effekt für die Buttons */
+        .inst-card:hover { border-color: #C5A059; transform: translateY(-2px); }
+        .nav-item:hover .nav-circle { border-color: #d97042; }
+    </style>
+</head>
+<body class="antialiased pb-40 selection:bg-orange-200">
+
+    <main class="max-w-md mx-auto min-h-screen relative pt-8 px-4">
+        
+        <!-- HEADER -->
+        <header class="text-center mb-6">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-white rounded-full card-shadow mb-4 border border-gray-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d97042" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+                </svg>
+            </div>
+            <h1 class="font-serif-custom text-2xl font-black tracking-widest text-[#1c2331] uppercase mb-1 text-center">Gedenk-Portal</h1>
+            <h2 class="text-[10px] font-medium tracking-[0.2em] text-gray-500 uppercase italic text-center">In liebevoller Verbundenheit</h2>
+        </header>
+
+        <!-- HAUPT-INSTITUT -->
+        <a href="https://www.bestattung.grossschaedl.at/sterbefaelle/" target="_blank" rel="noopener noreferrer" class="block bg-white rounded-[2rem] p-6 mb-6 card-shadow border-2 border-[#d97042] text-center transition-transform active:scale-95">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-orange-50 rounded-xl mb-4 border border-orange-100">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d97042" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                    <path d="M9 22v-4h6v4"></path>
+                    <path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path>
+                </svg>
+            </div>
+            <p class="text-[9px] font-bold tracking-wider text-[#d97042] uppercase mb-2">Eggersdorf & Graz-Umgebung</p>
+            <h3 class="font-serif-custom text-xl font-bold text-[#1c2331] mb-3 leading-tight">Bestattung<br>Großschädl</h3>
+            <p class="text-xs text-gray-500 italic max-w-[200px] mx-auto text-center">Traditionelle Begleitung und aktuelle Parten aus der Region.</p>
+        </a>
+
+        <!-- PASSENDE WORTE FINDEN -->
+        <div class="bg-white rounded-[2rem] p-6 mb-8 card-shadow border border-gray-100">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="bg-gray-50 p-2 rounded-xl border border-gray-200">
+                    <!-- Geschwungene Feder -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1c2331" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.5 3.5c-2.5-1.5-6-1.5-9 1-2.5 2-4.5 5-5.5 8.5-.5 1.5-1 3.5-1.5 5l-2.5 3 4-1c1.5-.5 3.5-1 5-1.5 3.5-1 6.5-3 8.5-5.5 2.5-3 2.5-6.5 1-9z"></path>
+                        <path d="M19 5L5 19"></path>
+                        <path d="M3 21c3-2 7-1 10 0 3 .8 6 1.5 8-1"></path>
+                    </svg>
+                </div>
+                <h3 class="font-serif-custom text-sm font-bold tracking-wide uppercase text-[#1c2331] whitespace-nowrap">Passende Worte finden</h3>
+            </div>
+
+            <div class="flex gap-2 mb-4">
+                <button data-category="gedenkkerze" class="category-btn flex-1 bg-black text-white text-[9px] font-bold uppercase py-3 px-2 rounded-xl text-center leading-tight">Gedenk-<br>Kerze</button>
+                <button data-category="kondolenzbuch" class="category-btn flex-1 bg-white text-gray-400 border border-gray-100 text-[9px] font-bold uppercase py-3 px-2 rounded-xl text-center leading-tight">Kondolenz-<br>Buch</button>
+                <button data-category="wuensche" class="category-btn flex-1 bg-white text-gray-400 border border-gray-100 text-[9px] font-bold uppercase py-3 px-2 rounded-xl text-center leading-tight">Persönliche<br>Wünsche</button>
+            </div>
+
+            <input type="text" id="keyword-input" placeholder="Name oder Stichwort (z.B. Oma, friedlich)..." class="w-full border border-gray-200 rounded-full py-3 px-5 text-sm outline-none focus:border-gray-400 mb-4 transition-colors">
+
+            <button id="generate-btn" class="w-full bg-black text-white rounded-full py-3.5 text-xs font-bold tracking-widest uppercase hover:bg-gray-800 transition-colors">✨ VORSCHLÄGE LADEN ✨</button>
+            <div id="results-container" class="mt-4 space-y-2 hidden"></div>
+        </div>
+
+        <!-- WEITERE INSTITUTE (Dunklere Rahmen) -->
+        <div class="mb-12">
+            <h4 class="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase italic mb-4 ml-2">Weitere Institute</h4>
+            <div class="grid grid-cols-2 gap-3">
+                <!-- 1. Eden -->
+                <a href="https://www.bestattungpein.at/traueranzeigen" target="_blank" class="inst-card bg-white rounded-3xl p-4 card-shadow border border-gray-400 flex flex-col items-center text-center transition-all duration-300">
+                    <div class="w-10 h-10 bg-[#fdfbf9] border border-gray-200 rounded-full flex items-center justify-center mb-3 text-[#C5A059]"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line></svg></div>
+                    <h5 class="font-serif-custom text-[15px] font-bold text-[#1c2331]">Bestattung Eden</h5>
+                    <p class="text-[11px] text-gray-400 uppercase mt-1">Region</p>
+                </a>
+                <!-- 2. Konrad -->
+                <a href="https://www.bestattung-konrad.at/sterbefaelle/" target="_blank" class="inst-card bg-white rounded-3xl p-4 card-shadow border border-gray-400 flex flex-col items-center text-center transition-all duration-300">
+                    <div class="w-10 h-10 bg-[#fdfbf9] border border-gray-200 rounded-full flex items-center justify-center mb-3 text-[#C5A059]"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="11" width="6" height="11" rx="1"></rect><path d="M12 2a3 3 0 0 0-3 3c0 1.5 1.5 3 3 5 1.5-2 3-3.5 3-5a3 3 0 0 0-3-3Z"></path></svg></div>
+                    <h5 class="font-serif-custom text-[15px] font-bold text-[#1c2331]">Bestattung Konrad</h5>
+                    <p class="text-[11px] text-gray-400 uppercase mt-1">Region</p>
+                </a>
+                <!-- 3. Kleine Zeitung -->
+                <a href="https://trauer.kleinezeitung.at/traueranzeigen-suche/letzte-14-tage" target="_blank" class="inst-card bg-white rounded-3xl p-4 card-shadow border border-gray-400 flex flex-col items-center text-center transition-all duration-300">
+                    <div class="w-10 h-10 bg-[#fdfbf9] border border-gray-200 rounded-full flex items-center justify-center mb-3 text-[#C5A059]"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></div>
+                    <h5 class="font-serif-custom text-[15px] font-bold text-[#1c2331]">Kleine Zeitung</h5>
+                    <p class="text-[11px] text-gray-400 uppercase mt-1">Anzeigen</p>
+                </a>
+                <!-- 4. Wolf -->
+                <a href="https://www.bestattung-wolf.com/gedenkportal/" target="_blank" class="inst-card bg-white rounded-3xl p-4 card-shadow border border-gray-400 flex flex-col items-center text-center transition-all duration-300">
+                    <div class="w-10 h-10 bg-[#fdfbf9] border border-gray-200 rounded-full flex items-center justify-center mb-3 text-[#C5A059]"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4Z"></path></svg></div>
+                    <h5 class="font-serif-custom text-[15px] font-bold text-[#1c2331]">Bestattung Wolf</h5>
+                    <p class="text-[11px] text-gray-400 uppercase mt-1">Region</p>
+                </a>
+                <!-- 5. Himmelblau -->
+                <a href="https://www.bestattung-himmelblau.at/todesanzeigen-uebersicht/todesanzeigen-graz/" target="_blank" class="inst-card bg-white rounded-3xl p-4 card-shadow border border-gray-400 flex flex-col items-center text-center transition-all duration-300">
+                    <div class="w-10 h-10 bg-[#fdfbf9] border border-gray-200 rounded-full flex items-center justify-center mb-3 text-[#C5A059]"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5"></path></svg></div>
+                    <h5 class="font-serif-custom text-[15px] font-bold text-[#1c2331]">Bestattung Himmelblau</h5>
+                    <p class="text-[11px] text-gray-400 uppercase mt-1">Graz</p>
+                </a>
+                <!-- 6. Grazer Bestattung -->
+                <a href="https://grazerbestattung.at/bestatungskalender/" target="_blank" class="inst-card bg-white rounded-3xl p-4 card-shadow border border-gray-400 flex flex-col items-center text-center transition-all duration-300">
+                    <div class="w-10 h-10 bg-[#fdfbf9] border border-gray-200 rounded-full flex items-center justify-center mb-3 text-[#C5A059]"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path></svg></div>
+                    <h5 class="font-serif-custom text-[15px] font-bold text-[#1c2331]">Grazer Bestattung</h5>
+                    <p class="text-[11px] text-gray-400 uppercase mt-1">Graz</p>
+                </a>
+                <!-- 7. Pein -->
+                <a href="https://www.bestattungpein.at/traueranzeigen" target="_blank" class="inst-card bg-white rounded-3xl p-4 card-shadow border border-gray-400 flex flex-col items-center text-center transition-all duration-300">
+                    <div class="w-10 h-10 bg-[#fdfbf9] border border-gray-200 rounded-full flex items-center justify-center mb-3 text-[#C5A059]"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></div>
+                    <h5 class="font-serif-custom text-[15px] font-bold text-[#1c2331]">Bestattung Pein</h5>
+                    <p class="text-[11px] text-gray-400 uppercase mt-1">Region</p>
+                </a>
+                <!-- 8. Radaschitz -->
+                <a href="https://www.bestattungradaschitz.at/online-parten/" target="_blank" class="inst-card bg-white rounded-3xl p-4 card-shadow border border-gray-400 flex flex-col items-center text-center transition-all duration-300">
+                    <div class="w-10 h-10 bg-[#fdfbf9] border border-gray-200 rounded-full flex items-center justify-center mb-3 text-[#C5A059]"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v2"></path><path d="M22 22H2"></path><path d="M12 22v-8a4 4 0 0 0-8 0"></path></svg></div>
+                    <h5 class="font-serif-custom text-[15px] font-bold text-[#1c2331]">Bestattung Radaschitz</h5>
+                    <p class="text-[11px] text-gray-400 uppercase mt-1">Riegersburg</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- UNTERE NAVIGATION (Mit grauer Umrandung) -->
+    <nav class="fixed bottom-0 w-full bg-[#f2ece5] border-t border-gray-200 pb-safe pt-3 px-2 z-[9999]">
+        <div class="max-w-md mx-auto flex justify-between items-start px-2 pb-3 text-center">
+            
+            <!-- St. Marein -->
+            <a href="https://www.einblicke.graz-seckau.at/pfarre/6048/diepfarren/stmareinampickelbach/weitereterminestmareinamp" target="_blank" rel="noopener noreferrer" class="nav-item flex flex-col items-center w-1/4">
+                <div class="nav-circle w-[3.25rem] h-[3.25rem] rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center transition-all duration-300 mb-1.5">
+                    <svg class="stroke-[#c25c27]" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v5"></path><path d="M10 4h4"></path><path d="M8 10l4-3 4 3v12H8V10z"></path><path d="M10 22v-3a2 2 0 0 1 4 0v3"></path>
+                    </svg>
+                </div>
+                <span class="text-[9px] font-bold uppercase text-[#1c2331] tracking-wider">St. Marein</span>
+                <span class="text-[9px] font-medium italic text-[#64748b] mt-[1px]">Termine</span>
+            </a>
+
+            <!-- Pfarrblatt -->
+            <a href="https://www.einblicke.graz-seckau.at/pfarre/6048/pfarrblatteinblicke" target="_blank" rel="noopener noreferrer" class="nav-item flex flex-col items-center w-1/4">
+                <div class="nav-circle w-[3.25rem] h-[3.25rem] rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center transition-all duration-300 mb-1.5">
+                    <svg class="stroke-[#c25c27]" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4V5z"></path><path d="M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6V5z"></path>
+                    </svg>
+                </div>
+                <span class="text-[9px] font-bold uppercase text-[#1c2331] tracking-wider">Pfarrblatt</span>
+                <span class="text-[9px] font-medium italic text-[#64748b] mt-[1px]">Online</span>
+            </a>
+
+            <!-- Friedhof -->
+            <a href="https://app.stiller-begleiter.at/" target="_blank" rel="noopener noreferrer" class="nav-item flex flex-col items-center w-1/4">
+                <div class="nav-circle w-[3.25rem] h-[3.25rem] rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center transition-all duration-300 mb-1.5">
+                    <svg class="stroke-[#c25c27]" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+                <span class="text-[9px] font-bold uppercase text-[#1c2331] tracking-wider">Friedhof</span>
+                <span class="text-[9px] font-medium italic text-[#64748b] mt-[1px]">Gräbersuche</span>
+            </a>
+
+            <!-- TV-Messe -->
+            <a href="https://www.gottesdienst.at/kirchenbeitrag/calendar_list_current_gottesdienst.siteswift?s=25698&t=2984f727b3a92a9b&ts=1772566626" target="_blank" rel="noopener noreferrer" class="nav-item flex flex-col items-center w-1/4">
+                <div class="nav-circle w-[3.25rem] h-[3.25rem] rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center transition-all duration-300 mb-1.5">
+                    <svg class="stroke-[#c25c27]" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="7" width="18" height="13" rx="2" ry="2"></rect><polyline points="16 3 12 7 8 3"></polyline>
+                    </svg>
+                </div>
+                <span class="text-[9px] font-bold uppercase text-[#1c2331] tracking-wider">TV-Messe</span>
+                <span class="text-[9px] font-medium italic text-[#64748b] mt-[1px]">Gottesdienst</span>
+            </a>
+
+        </div>
+    </nav>
+
+    <script>
+        // HIER DEN KOPIERTEN SCHLÜSSEL EINTRAGEN:
+        const apiKey = "AIzaSyDHOWt9NFB3Joa9l4RbSij_sod9fYGigAY"; 
+
+        // PWA Manifest Generierung
+        const manifest = { "name": "Gedenk-Portal", "short_name": "Gedenken", "start_url": ".", "display": "standalone", "background_color": "#f2ece5", "theme_color": "#f2ece5", "icons": [{ "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d97042'%3E%3Cpath d='M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z'/%3E%3C/svg%3E", "sizes": "192x192", "type": "image/svg+xml" }] };
+        const blob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
+        document.getElementById('manifest-link').setAttribute('href', URL.createObjectURL(blob));
+
+        // KI Logik
+        let activeCategory = "gedenkkerze";
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.category-btn').forEach(b => { b.classList.remove('bg-black', 'text-white'); b.classList.add('bg-white', 'text-gray-400'); });
+                e.currentTarget.classList.remove('bg-white', 'text-gray-400'); e.currentTarget.classList.add('bg-black', 'text-white');
+                activeCategory = e.currentTarget.dataset.category;
+            });
+        });
+
+        async function fetchGeminiSuggestions(prompt, retries = 5) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: "Du bist ein einfühlsamer Assistent für Gedenk-Portale. Antworte nur mit einem JSON-Array von Strings." }]},
+                generationConfig: { responseMimeType: "application/json", responseSchema: { type: "ARRAY", items: { type: "STRING" } } }
+            };
+            const delays = [1000, 2000, 4000, 8000, 16000];
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                    if (!response.ok) throw new Error("API Error");
+                    const data = await response.json();
+                    return JSON.parse(data.candidates[0].content.parts[0].text);
+                } catch (e) { if (i === retries - 1) throw e; await new Promise(r => setTimeout(r, delays[i])); }
+            }
+        }
+
+        document.getElementById('generate-btn').addEventListener('click', async () => {
+            if (!apiKey) { alert("Bitte erst den API-Key eintragen!"); return; }
+            const input = document.getElementById('keyword-input').value;
+            const btn = document.getElementById('generate-btn');
+            const res = document.getElementById('results-container');
+            
+            btn.disabled = true;
+            btn.innerHTML = 'Generiere...';
+            res.innerHTML = '<p class="text-xs text-center p-4 italic text-gray-400 font-serif-custom animate-pulse">Einfühlsame Worte werden formuliert...</p>';
+            res.classList.remove('hidden');
+
+            try {
+                const prompt = `Erstelle 3 sehr pietätvolle und kurze Texte für ${activeCategory} zum Thema: ${input || 'Abschied'}. Antworte NUR mit einem JSON Array von Strings. Max 120 Zeichen pro Text.`;
+                const suggestions = await fetchGeminiSuggestions(prompt);
+                res.innerHTML = suggestions.map(t => `<div onclick="navigator.clipboard.writeText('${t.replace(/'/g, "\\'")}'); alert('Text kopiert!')" class="p-4 bg-gray-50 rounded-xl border border-gray-100 mb-2 text-[11px] italic cursor-pointer card-shadow hover:bg-orange-50 transition-colors">${t}</div>`).join('');
+            } catch (e) { res.innerHTML = '<p class="text-xs text-red-500 text-center">Entschuldigung, die KI konnte gerade nicht antworten.</p>'; }
+            btn.disabled = false;
+            btn.innerHTML = '✨ VORSCHLÄGE LADEN ✨';
+        });
+
+        // Service Worker für PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                try {
+                    const swCode = `self.addEventListener('fetch', e => e.respondWith(fetch(e.request).catch(() => new Response('Offline'))));`;
+                    const swBlob = new Blob([swCode], { type: 'application/javascript' });
+                    const swUrl = URL.createObjectURL(swBlob);
+                    navigator.serviceWorker.register(swUrl).catch(() => {});
+                } catch (e) {}
+            });
+        }
+    </script>
+</body>
+</html>
