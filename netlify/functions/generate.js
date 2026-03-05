@@ -1,74 +1,63 @@
 import OpenAI from "openai";
 
-export default async (req) => {
-  if (req.method !== "POST") {
-    return new Response("Method Not Allowed", { status: 405 });
+export const handler = async (event) => {
+  if (event.httpMethod !== "POST") {
+    return {
+      statusCode: 405,
+      headers: { "Content-Type": "text/plain" },
+      body: "Method Not Allowed",
+    };
   }
 
   try {
-    const { tab, keyword } = await req.json();
+    const { tab, keyword, max, maxChars } = JSON.parse(event.body || "{}");
 
-    const client = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY
-    });
+    const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-    let prompt = "";
+    const n = Math.min(Number(max || 3), 3);
 
-    if (tab === "kerze") {
-      prompt = `
-Schreibe 3 würdige Texte für eine Gedenkkerze.
-Maximal 120 Zeichen pro Text.
+    const kind =
+      tab === "kerze" ? "Gedenkkerze" :
+      tab === "kondolenzbuch" ? "Kondolenzbuch-Eintrag" :
+      "persönliche Worte";
 
-Name oder Stichwort: ${keyword || "allgemein"}
-
-Antwort nur als JSON:
-{"texts":["...","...","..."]}
-`;
-    } else if (tab === "kondolenzbuch") {
-      prompt = `
-Schreibe 3 würdevolle Einträge für ein Kondolenzbuch.
-
-Name oder Stichwort: ${keyword || "allgemein"}
-
-Antwort nur als JSON:
-{"texts":["...","...","..."]}
-`;
-    } else {
-      prompt = `
-Schreibe 3 persönliche Trauertexte.
-
-Name oder Stichwort: ${keyword || "allgemein"}
-
-Antwort nur als JSON:
-{"texts":["...","...","..."]}
-`;
-    }
+    const limitLine =
+      tab === "kerze"
+        ? `Jeder Vorschlag MUSS maximal ${Number(maxChars || 120)} Zeichen (inkl. Leerzeichen) haben.`
+        : `Würdevoll, warm, nicht kitschig, neutral formuliert (keine Religion erzwingen).`;
 
     const response = await client.responses.create({
       model: "gpt-5",
-      input: prompt
+      instructions:
+`Du schreibst würdige, einfühlsame Trauertexte auf Deutsch (Österreich passt).
+Gib GENAU ${n} Vorschläge als JSON zurück.
+Keine Emojis. Keine Nummerierung im Text.
+${limitLine}
+
+Antwortformat (nur JSON):
+{ "texts": ["...", "...", "..."] }`,
+      input:
+`Erstelle ${n} Vorschläge für: ${kind}.
+Name/Stichwort: "${(keyword || "").trim() || "—"}"`
     });
 
-    const text = response.output_text;
+    const out = response.output_text || "";
+    let parsed;
+    try { parsed = JSON.parse(out); }
+    catch { parsed = { texts: [out].filter(Boolean) }; }
 
-    let result;
+    const texts = Array.isArray(parsed.texts) ? parsed.texts.slice(0, 3) : [];
 
-    try {
-      result = JSON.parse(text);
-    } catch {
-      result = { texts: [text] };
-    }
-
-    return new Response(JSON.stringify(result), {
-      headers: { "Content-Type": "application/json" }
-    });
-
-  } catch (error) {
-
-    return new Response(
-      JSON.stringify({ error: "Server error" }),
-      { status: 500 }
-    );
-
+    return {
+      statusCode: 200,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ texts }),
+    };
+  } catch (err) {
+    return {
+      statusCode: 500,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ error: "Server error", details: String(err?.message || err) }),
+    };
   }
 };
