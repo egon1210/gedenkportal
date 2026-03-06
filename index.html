@@ -2,461 +2,565 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gedenk-Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Gedenk-Portal | Elegante dunkle Version</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg: #F3EDE6;
-      --card: #FFFFFF;
-      --ink: #12141A;
-      --muted: #6B7280;
-      --line: rgba(0,0,0,.12);
-      --shadow: 0 14px 30px rgba(0,0,0,.08);
-      --orange: #F58B1F;
-      --soft: #FFF7EA;
-      --soft2:#FFE9C8;
+    :root {
+      --bg: #161311;
+      --bg-soft: #1D1917;
+      --card: #211C19;
+      --card-2: #26211E;
+      --surface: #2B2521;
+
+      --ink: #F4EDE6;
+      --muted: #B7AAA0;
+      --line: rgba(255, 237, 220, 0.10);
+
+      --accent: #B69067;
+      --accent-strong: #D2B089;
+      --accent-soft: rgba(182, 144, 103, 0.12);
+
+      --danger-bg: #2A1B19;
+      --danger-line: rgba(205, 143, 132, 0.25);
+      --danger-text: #E0ACA1;
+
+      --shadow-sm: 0 8px 22px rgba(0, 0, 0, 0.22);
+      --shadow-md: 0 14px 34px rgba(0, 0, 0, 0.28);
+
       --radius-xl: 26px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
-      --radius-sm: 14px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-pill: 999px;
     }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
       background:
-        radial-gradient(1100px 500px at 50% -200px, rgba(245,139,31,.22), transparent 60%),
-        var(--bg);
+        radial-gradient(circle at top, rgba(182, 144, 103, 0.14), transparent 28%),
+        linear-gradient(180deg, #181412 0%, #14110F 100%);
       color: var(--ink);
+      line-height: 1.65;
     }
 
-    a{ color: inherit; text-decoration:none; }
-    button, input{ font: inherit; }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-    .app{
-      max-width: 440px;
+    a {
+      color: inherit;
+    }
+
+    .app {
+      max-width: 480px;
       margin: 0 auto;
-      padding: 14px 16px 120px;
+      padding: 22px 16px 134px;
+      min-height: 100vh;
     }
 
-    .header{
-      text-align:center;
-      padding: 10px 0 14px;
-    }
-    .logo{
-      width: 58px; height:58px;
-      margin: 0 auto 10px;
-      border-radius: 999px;
-      background: var(--card);
-      border: 1px solid rgba(0,0,0,.08);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow: 0 8px 18px rgba(0,0,0,.06);
-    }
-    .logo svg{ width: 22px; height: 22px; }
-    .title{
-      font-family: "Playfair Display", serif;
-      font-weight: 800;
-      letter-spacing: 1.2px;
-      margin: 0;
-      font-size: 34px;
-      line-height: 1.05;
-    }
-    .sub{
-      margin: 8px 0 0;
-      font-size: 12px;
-      letter-spacing: 2.8px;
-      font-weight: 800;
-      color: var(--muted);
-      text-transform: uppercase;
+    .header {
+      text-align: center;
+      padding: 18px 0 34px;
     }
 
-    .card{
-      background: var(--card);
-      border-radius: var(--radius-xl);
-      border: 2px solid var(--line);
-      box-shadow: var(--shadow);
+    .logo {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #2B2521 0%, #211C19 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--line);
+      overflow: hidden;
     }
 
-    .hero-wrap{ margin: 8px 0 14px; }
-    .heroLink{ display:block; }
-    .heroLink:focus-visible{
-      outline: none;
-      box-shadow: 0 0 0 4px rgba(245,139,31,.18);
-      border-radius: var(--radius-xl);
+    .logo img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
     }
-    .hero{
-      background: var(--soft);
-      border: 2px solid var(--orange);
-      padding: 18px;
-      text-align:center;
-      transition: transform .08s ease, box-shadow .08s ease;
-    }
-    .hero:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 18px 34px rgba(0,0,0,.10);
-    }
-    .hero-icon{
-      width: 68px; height:68px;
-      margin: 0 auto 10px;
-      border-radius: 18px;
-      background: var(--soft2);
-      border: 2px solid var(--orange);
-      display:flex; align-items:center; justify-content:center;
-      box-shadow: 0 10px 18px rgba(245,139,31,.14);
-    }
-    .hero-icon svg{ width: 26px; height:26px; }
-    .hero-region{
-      margin: 2px 0 8px;
-      font-size: 12px;
-      letter-spacing: 1.9px;
-      font-weight: 900;
-      color: var(--orange);
-      text-transform: uppercase;
-    }
-    .hero-name{
-      margin: 0;
-      font-family: "Playfair Display", serif;
-      font-weight: 800;
-      font-size: 34px;
-      line-height: 1.02;
-    }
-    .hero-desc{
-      margin: 10px 0 0;
-      color: var(--muted);
+
+    .title {
+      font-family: "Cormorant Garamond", serif;
       font-weight: 700;
-      font-style: italic;
-      line-height: 1.4;
-      font-size: 14px;
-    }
-    .hero-hint{
-      margin-top: 14px;
-      display:inline-block;
-      padding: 10px 12px;
-      border-radius: 16px;
-      border: 2px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.7);
-      font-weight: 900;
-      letter-spacing: 1px;
-      font-size: 12px;
+      font-size: 38px;
+      line-height: 1.05;
+      margin: 0;
+      letter-spacing: -0.3px;
     }
 
-    .help{
-      padding: 16px;
-      margin: 0 0 18px;
+    .sub {
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-top: 8px;
     }
-    .help-head{
-      display:flex;
-      align-items:center;
-      gap: 12px;
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+      letter-spacing: 1.8px;
+      margin: 28px 0 12px;
+      text-transform: uppercase;
+    }
+
+    .page {
+      display: none;
+      animation: fadeIn 0.28s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      position: relative;
+      background: linear-gradient(180deg, var(--card-2) 0%, var(--card) 100%);
+      border-radius: var(--radius-xl);
+      padding: 22px;
+      margin-bottom: 20px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card::before {
+      content: "";
+      display: block;
+      width: 48px;
+      height: 2px;
+      border-radius: var(--radius-pill);
+      background: rgba(210, 176, 137, 0.42);
       margin-bottom: 14px;
     }
-    .help-icon{
-      width: 54px; height:54px;
-      border-radius: 16px;
-      background:#F4F6F8;
-      border: 2px solid rgba(0,0,0,.10);
-      display:flex; align-items:center; justify-content:center;
-      flex-shrink: 0;
+
+    .hero-card {
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+      background:
+        linear-gradient(145deg, rgba(182, 144, 103, 0.16) 0%, rgba(182, 144, 103, 0.05) 100%),
+        linear-gradient(180deg, #26211E 0%, #1F1A17 100%);
+      border: 1px solid rgba(210, 176, 137, 0.18);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      box-shadow: var(--shadow-md);
     }
-    .help-icon svg{ width: 22px; height:22px; }
-    .help-title{
-      margin:0;
-      font-family: "Playfair Display", serif;
+
+    .hero-card:active {
+      transform: scale(0.985);
+    }
+
+    .hero-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(180deg, #302925 0%, #241F1C 100%);
+      border-radius: 22px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(210, 176, 137, 0.16);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+      overflow: hidden;
+    }
+
+    .hero-icon img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+    }
+
+    .hero-region {
+      margin: 0;
+      font-size: 11px;
+      letter-spacing: 1.9px;
       font-weight: 800;
-      letter-spacing: .6px;
-      font-size: 22px;
-      line-height: 1.1;
+      color: var(--accent-strong);
       text-transform: uppercase;
     }
 
-    .single-tab{
-      margin-bottom: 12px;
-    }
-    .single-tab-label{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width: 120px;
-      border-radius: var(--radius-sm);
-      padding: 12px 14px;
-      text-align:center;
-      font-weight: 900;
-      letter-spacing: 1.2px;
-      font-size: 12px;
-      border: 2px solid #0B0B0D;
-      background:#0B0B0D;
-      color:#fff;
-      white-space: pre-line;
+    .hero-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 34px;
+      line-height: 1.05;
+      font-weight: 700;
+      margin: 8px 0 10px;
+      letter-spacing: -0.2px;
     }
 
-    .input{
-      width:100%;
-      height: 56px;
-      border-radius: 16px;
-      border: 2px solid rgba(0,0,0,.10);
-      padding: 0 14px;
-      font-weight: 800;
-      font-size: 15px;
-      outline: none;
-      background: #fff;
+    .hero-text {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 16px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.04);
+      color: var(--ink);
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid rgba(255, 237, 220, 0.10);
+      box-shadow: inset 0 0 0 1px rgba(182, 144, 103, 0.06);
+    }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .partner-tile {
+      background: linear-gradient(180deg, #26211E 0%, #201B18 100%);
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      color: inherit;
+      text-align: center;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 122px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .partner-tile:active {
+      transform: scale(0.985);
+      background: linear-gradient(180deg, #2A2420 0%, #231D19 100%);
+    }
+
+    .partner-logo-wrap {
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
+      background: var(--surface);
+      border: 1px solid rgba(255, 237, 220, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .partner-tile img {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      object-fit: contain;
+    }
+
+    .partner-tile h4 {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.3;
       color: var(--ink);
     }
-    .input:focus{
-      border-color: rgba(245,139,31,.9);
-      box-shadow: 0 0 0 4px rgba(245,139,31,.14);
-    }
 
-    .help-actions{ margin-top: 12px; }
-    .btn{
-      border: 0;
-      cursor: pointer;
-      border-radius: 18px;
-      padding: 12px 14px;
-      font-weight: 900;
-      letter-spacing: 1.2px;
-      font-size: 12px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap: 8px;
-    }
-    .btn-primary{
-      background: #0B0B0D;
-      color: #fff;
-    }
-    .btn-wide{
-      width:100%;
-      height: 56px;
-    }
-
-    .note{
-      margin-top: 10px;
+    .partner-tile p {
+      margin: 6px 0 0;
+      font-size: 10px;
       color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
       font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .card-title {
+      margin: 0 0 6px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.05;
+    }
+
+    .card-subtext {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .help-item {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 237, 220, 0.08);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .help-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .check-circle {
+      width: 22px;
+      height: 22px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 2px;
+      position: relative;
+      background: rgba(182, 144, 103, 0.06);
+    }
+
+    .check-circle::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border-radius: 50%;
+      background: rgba(182, 144, 103, 0.22);
+    }
+
+    .help-item strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .help-item small {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .link-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .quick-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      background: linear-gradient(180deg, #26211E 0%, #201B18 100%);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 15px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+
+    .quick-link:active {
+      transform: scale(0.985);
+    }
+
+    .quick-link-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: rgba(182, 144, 103, 0.10);
+      border: 1px solid rgba(210, 176, 137, 0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-strong);
+      flex-shrink: 0;
+    }
+
+    .quick-link-text {
+      min-width: 0;
+    }
+
+    .quick-link-title {
+      display: block;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .quick-link-sub {
+      display: block;
+      color: var(--muted);
       font-size: 12px;
       line-height: 1.45;
     }
 
-    .suggestions{
-      margin-top: 14px;
-      display:none;
-    }
-    .suggestions.show{ display:block; }
-    .sugg-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom: 10px;
-    }
-    .sugg-head h3{
-      margin:0;
-      font-size: 12px;
-      letter-spacing: 2.4px;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 900;
-    }
-    .sugg-clear{
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      font-weight: 900;
-      letter-spacing: 1px;
-      cursor:pointer;
-      padding: 6px 0;
-    }
-    .sugg-list{
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-    }
-    .sugg-item{
-      border-radius: 18px;
-      border: 2px solid rgba(0,0,0,.10);
-      background: #fff;
-      padding: 12px 12px;
-      box-shadow: 0 10px 18px rgba(0,0,0,.05);
-    }
-    .sugg-item p{
-      margin:0;
-      color: var(--ink);
-      font-weight: 700;
-      line-height: 1.35;
-      white-space: pre-wrap;
-    }
-    .sugg-item .copy{
-      margin-top: 10px;
-      display:flex;
-      justify-content:flex-end;
-    }
-    .copy button{
-      border-radius: 12px;
-      border: 2px solid rgba(0,0,0,.10);
-      background: #F4F6F8;
-      cursor:pointer;
-      padding: 8px 10px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      font-size: 12px;
-    }
-
-    .section-label{
-      margin: 10px 2px 10px;
-      font-size: 12px;
-      letter-spacing: 3px;
-      font-weight: 900;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-    .tile{
-      padding: 14px;
-      border-radius: var(--radius-lg);
-      background: var(--card);
-      border: 2px solid rgba(0,0,0,.10);
-      box-shadow: 0 12px 22px rgba(0,0,0,.06);
-      text-align:center;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      min-height: 138px;
-      transition: transform .08s ease, box-shadow .08s ease;
-    }
-    .tile:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 16px 26px rgba(0,0,0,.08);
-    }
-    .tile .ic{
-      width: 52px; height:52px;
-      border-radius: 16px;
-      margin: 0 auto 10px;
-      background:#F4F6F8;
-      border: 2px solid rgba(0,0,0,.10);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .tile .ic svg{ width: 20px; height: 20px; opacity:.9; }
-    .tile .t{ font-weight: 900; font-size: 14px; margin: 0; }
-    .tile .s{
-      margin: 6px 0 0;
-      font-size: 11px;
-      letter-spacing: 1.6px;
-      font-weight: 900;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
-
-    .bottom{
-      position: fixed;
-      left: 0; right: 0; bottom: 0;
-      background: rgba(243,237,230,.92);
-      backdrop-filter: blur(10px);
-      border-top: 1px solid rgba(0,0,0,.10);
-      padding: 10px 10px 14px;
-    }
-    .bottom-inner{
-      max-width: 440px;
-      margin: 0 auto;
-      display:flex;
-      justify-content: space-between;
-      align-items:flex-end;
-      gap: 8px;
-    }
-    .navbtn{
-      flex:1;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap: 6px;
-      cursor:pointer;
-      user-select:none;
-    }
-    .navbtn .bubble{
-      width: 46px; height:46px;
-      border-radius: 999px;
-      border: 2px solid rgba(0,0,0,.10);
-      background:#F4F6F8;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      transition: all .1s ease;
-    }
-    .navbtn span{
-      font-size: 10px;
-      letter-spacing: 1px;
-      font-weight: 900;
-      color: var(--muted);
-      text-transform: uppercase;
-      text-align:center;
-    }
-    .navbtn.active span{ color: var(--orange); }
-    .navbtn.active .bubble{ background: var(--soft); border-color: var(--orange); }
-
-    .navbtn.home{
-      flex: 1.25;
-      transform: translateY(-6px);
-    }
-    .navbtn.home .bubble{
-      width: 64px; height:64px;
-      border-width: 3px;
-      border-color: var(--orange);
-      background: var(--soft);
-      box-shadow: 0 14px 26px rgba(245,139,31,.22);
-    }
-    .navbtn.home span{
-      color: var(--orange);
-      font-size: 11px;
-      letter-spacing: 1.2px;
-    }
-
-    .page{ display:none; }
-    .page.active{ display:block; }
-
-    .mini-card{
+    .emergency-box {
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-line);
       padding: 16px;
-      border-radius: var(--radius-xl);
-      border: 2px solid rgba(0,0,0,.10);
-      background: var(--card);
-      box-shadow: var(--shadow);
-    }
-    .mini-card h2{
-      margin:0 0 10px;
-      font-family: "Playfair Display", serif;
-      font-weight: 800;
-      font-size: 24px;
-    }
-    .mini-card p{
-      margin:0;
-      color: var(--muted);
-      font-weight:700;
-      line-height:1.5;
+      border-radius: var(--radius-md);
+      margin-top: 15px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
     }
 
-    @media (max-width: 430px){
-      .app{
+    .emergency-title {
+      margin: 0 0 6px;
+      color: var(--danger-text);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .emergency-number {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.1;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .emergency-number small {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .emergency-note {
+      margin: 6px 0 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .empty-card {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .empty-icon {
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+
+    .empty-card p {
+      margin: 0;
+    }
+
+    .empty-card .empty-title {
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .empty-card .empty-text {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(24, 20, 18, 0.92);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(255, 237, 220, 0.08);
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 6px 24px;
+      z-index: 100;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      flex: 1;
+      min-width: 0;
+      text-align: center;
+    }
+
+    .nav-item.active {
+      color: var(--accent-strong);
+    }
+
+    .nav-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.18s ease;
+    }
+
+    .nav-item.active .nav-icon {
+      background: rgba(182, 144, 103, 0.14);
+      box-shadow: inset 0 0 0 1px rgba(210, 176, 137, 0.10);
+    }
+
+    @media (max-width: 380px) {
+      .app {
         padding-left: 12px;
         padding-right: 12px;
       }
-      .title{
+
+      .title {
+        font-size: 34px;
+      }
+
+      .hero-title {
         font-size: 30px;
       }
-      .hero-name{
-        font-size: 30px;
+
+      .partner-grid {
+        gap: 10px;
+      }
+
+      .partner-tile {
+        padding: 16px 12px;
+      }
+
+      .nav-item {
+        font-size: 8px;
       }
     }
   </style>
@@ -464,340 +568,279 @@
 
 <body>
   <main class="app">
-    <section id="page-bestattung" class="page active" aria-label="Bestattung">
+    <!-- SEITE: START -->
+    <section id="page-start" class="page active">
       <header class="header">
-        <div class="logo" aria-hidden="true" title="Gedenk-Portal">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 22c4.2 0 7-3 7-7.2 0-3.4-2-5.6-3.6-7.1-.9-.9-1.6-1.8-1.9-2.7-.1-.3-.5-.4-.7-.1-1.5 2.3-3.7 3.8-4.7 5.8-.3.7-.4 1.4-.2 2.2.1.5-.4.8-.8.5-.9-.7-1.6-1.9-1.5-3.6 0-.3-.4-.5-.6-.2C4 8.8 3 11 3 14.8 3 19 6.1 22 12 22Z" fill="#F58B1F"/>
-          </svg>
+        <div class="logo">
+          <img src="https://www.google.com/s2/favicons?sz=64&domain=bestattung.grossschaedl.at" alt="Großschädl Logo">
         </div>
-        <h1 class="title">GEDENK-PORTAL</h1>
-        <p class="sub">IN LIEBEVOLLER VERBUNDENHEIT</p>
+        <h1 class="title">Gedenk-Portal</h1>
+        <p class="sub">In stillem Gedenken verbunden</p>
       </header>
 
-      <div class="hero-wrap">
-        <a class="heroLink" href="https://www.bestattung.grossschaedl.at/sterbefaelle/" target="_blank" rel="noopener" aria-label="Zu Bestattung Großschädl Sterbefälle">
-          <section class="card hero">
-            <div class="hero-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M4 20V9.5L12 4l8 5.5V20" stroke="#12141A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M9 20v-6h6v6" stroke="#12141A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M12 8v3" stroke="#F58B1F" stroke-width="2" stroke-linecap="round"/>
-                <path d="M10.5 9.5h3" stroke="#F58B1F" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
+      <a href="https://www.bestattung.grossschaedl.at/sterbefaelle/" target="_blank" rel="noopener noreferrer" class="card hero-card">
+        <div class="hero-icon">
+          <img src="https://www.google.com/s2/favicons?sz=64&domain=bestattung.grossschaedl.at" alt="Großschädl Logo">
+        </div>
+        <p class="hero-region">Region Eggersdorf</p>
+        <h2 class="hero-title">Bestattung Großschädl</h2>
+        <p class="hero-text">Aktuelle Sterbefälle, Gedenkseiten und würdevolle Begleitung.</p>
+        <div class="hero-cta">Zum Gedenkportal</div>
+      </a>
 
-            <div class="hero-region">EGGERSDORF &amp; GRAZ-UMGEBUNG</div>
-            <h2 class="hero-name">Bestattung<br>Großschädl</h2>
-            <p class="hero-desc">Traditionelle Begleitung und aktuelle<br>Parten aus der Region.</p>
-            <span class="hero-hint">Antippen zum Öffnen →</span>
-          </section>
+      <p class="section-label">Weitere Bestattungsinstitute</p>
+
+      <div class="partner-grid">
+        <a href="https://www.eden.co.at/sterbefaelle/" target="_blank" rel="noopener noreferrer" class="partner-tile">
+          <div class="partner-logo-wrap">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=eden.co.at" alt="Eden Logo">
+          </div>
+          <h4>Eden</h4>
+          <p>Gleisdorf</p>
+        </a>
+
+        <a href="https://www.bestattung-konrad.at/sterbefaelle/" target="_blank" rel="noopener noreferrer" class="partner-tile">
+          <div class="partner-logo-wrap">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=bestattung-konrad.at" alt="Konrad Logo">
+          </div>
+          <h4>Konrad</h4>
+          <p>Südoststeiermark</p>
+        </a>
+
+        <a href="https://www.bestattung-himmelblau.at/todesanzeigen-uebersicht/todesanzeigen-graz/" target="_blank" rel="noopener noreferrer" class="partner-tile">
+          <div class="partner-logo-wrap">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=bestattung-himmelblau.at" alt="Himmelblau Logo">
+          </div>
+          <h4>Himmelblau</h4>
+          <p>Graz & Umgebung</p>
+        </a>
+
+        <a href="https://grazerbestattung.at/bestatungskalender/" target="_blank" rel="noopener noreferrer" class="partner-tile">
+          <div class="partner-logo-wrap">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=grazerbestattung.at" alt="Grazer Bestattung Logo">
+          </div>
+          <h4>Grazer Best.</h4>
+          <p>Stadt Graz</p>
+        </a>
+
+        <a href="https://trauer.kleinezeitung.at/traueranzeigen-suche/letzte-14-tage" target="_blank" rel="noopener noreferrer" class="partner-tile">
+          <div class="partner-logo-wrap">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=kleinezeitung.at" alt="Kleine Zeitung Logo">
+          </div>
+          <h4>Kleine Zeitung</h4>
+          <p>Traueranzeigen</p>
+        </a>
+
+        <a href="https://www.bestattungpein.at/traueranzeigen" target="_blank" rel="noopener noreferrer" class="partner-tile">
+          <div class="partner-logo-wrap">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=bestattungpein.at" alt="Pein Logo">
+          </div>
+          <h4>Pein</h4>
+          <p>St. Stefan / Rosental</p>
+        </a>
+
+        <a href="https://www.bestattungradaschitz.at/online-parten/" target="_blank" rel="noopener noreferrer" class="partner-tile">
+          <div class="partner-logo-wrap">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=bestattungradaschitz.at" alt="Radaschitz Logo">
+          </div>
+          <h4>Radaschitz</h4>
+          <p>Feldbach / Riegersburg</p>
+        </a>
+
+        <a href="https://www.bestattung-wolf.com/gedenkportal/" target="_blank" rel="noopener noreferrer" class="partner-tile">
+          <div class="partner-logo-wrap">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=bestattung-wolf.com" alt="Wolf Logo">
+          </div>
+          <h4>Wolf</h4>
+          <p>Kalsdorf / Leibnitz</p>
         </a>
       </div>
+    </section>
 
-      <section class="card help" id="hilfe" aria-label="Gedenkkerze">
-        <div class="help-head">
-          <div class="help-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 2l1.3 4.2L18 7.5l-4.7 1.3L12 13l-1.3-4.2L6 7.5l4.7-1.3L12 2Z" fill="#12141A"/>
-              <path d="M19 13l.9 2.7L23 16.5l-3.1.8L19 20l-.9-2.7L15 16.5l3.1-.8L19 13Z" fill="#12141A" opacity=".9"/>
+    <!-- SEITE: ST. MAREIN TERMINE -->
+    <section id="page-termine" class="page">
+      <header class="header" style="padding-top: 4px; padding-bottom: 22px;">
+        <h2 class="title" style="font-size: 34px;">St. Marein Termine</h2>
+        <p class="sub" style="letter-spacing: 1.2px;">Aktuelle Termine und Hinweise</p>
+      </header>
+
+      <div class="card">
+        <h3 class="card-title">Pfarrtermine online</h3>
+        <p class="card-subtext">Hier finden Sie die aktuellen Termine der Pfarre St. Marein am Pickelbach.</p>
+
+        <a href="https://www.einblicke.graz-seckau.at/pfarre/6048/diepfarren/stmareinampickelbach/weitereterminestmareinamp" target="_blank" rel="noopener noreferrer" class="quick-link">
+          <div class="quick-link-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
           </div>
-          <h3 class="help-title">GEDENK-<br>KERZE</h3>
-        </div>
-
-        <div class="single-tab" aria-hidden="true">
-          <div class="single-tab-label">GEDENK-<br>KERZE</div>
-        </div>
-
-        <input id="keyword" class="input" type="text" placeholder="Name oder Stichwort eingeben" autocomplete="off" />
-
-        <div class="help-actions">
-          <button id="load" class="btn btn-primary btn-wide" type="button">TEXTVORSCHLÄGE ANZEIGEN</button>
-        </div>
-
-        <div class="note" id="note">
-          Hinweis: Die Vorschläge sind für eine <b>Gedenkkerze</b> gedacht und kurz gehalten.
-        </div>
-
-        <div id="suggestions" class="suggestions" aria-live="polite">
-          <div class="sugg-head">
-            <h3>VORSCHLÄGE</h3>
-            <button id="clear" class="sugg-clear" type="button">Leeren</button>
+          <div class="quick-link-text">
+            <span class="quick-link-title">Termine der Pfarre öffnen</span>
+            <span class="quick-link-sub">Direkt zur Übersicht von St. Marein am Pickelbach</span>
           </div>
-          <div id="suggList" class="sugg-list"></div>
-        </div>
-      </section>
-
-      <div class="section-label">WEITERE INSTITUTE</div>
-
-      <section class="grid" aria-label="Weitere Institute">
-        <a class="tile" href="https://www.eden.co.at/sterbefaelle/" target="_blank" rel="noopener">
-          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21c5 0 9-3 9-9S17 3 12 3 3 7 3 12s4 9 9 9Z" stroke="#12141A" stroke-width="2"/><path d="M8 12h8" stroke="#F58B1F" stroke-width="2" stroke-linecap="round"/></svg></div>
-          <p class="t">Bestattung Eden</p><p class="s">Graz &amp; Steiermark</p>
         </a>
-
-        <a class="tile" href="https://www.bestattung-konrad.at/sterbefaelle/" target="_blank" rel="noopener">
-          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 20V9l6-4 6 4v11" stroke="#12141A" stroke-width="2" stroke-linejoin="round"/><path d="M9 20v-5h6v5" stroke="#F58B1F" stroke-width="2" stroke-linejoin="round"/></svg></div>
-          <p class="t">Bestattung Konrad</p><p class="s">Südoststeiermark</p>
-        </a>
-
-        <a class="tile" href="https://www.bestattung-himmelblau.at/todesanzeigen-uebersicht/todesanzeigen-graz/" target="_blank" rel="noopener">
-          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M8 18h8" stroke="#12141A" stroke-width="2" stroke-linecap="round"/><path d="M7 10a5 5 0 0 1 10 0c0 4-5 8-5 8s-5-4-5-8Z" stroke="#F58B1F" stroke-width="2"/></svg></div>
-          <p class="t">Bestattung Himmelblau</p><p class="s">Graz &amp; Umgebung</p>
-        </a>
-
-        <a class="tile" href="https://grazerbestattung.at/bestatungskalender/" target="_blank" rel="noopener">
-          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 3h10v18H7z" stroke="#12141A" stroke-width="2"/><path d="M9 7h6" stroke="#F58B1F" stroke-width="2" stroke-linecap="round"/><path d="M9 11h6" stroke="#F58B1F" stroke-width="2" stroke-linecap="round"/></svg></div>
-          <p class="t">Grazer Bestattung</p><p class="s">Graz Stadt</p>
-        </a>
-
-        <a class="tile" href="https://trauer.kleinezeitung.at/traueranzeigen-suche/letzte-14-tage" target="_blank" rel="noopener">
-          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 4h12v16H6z" stroke="#12141A" stroke-width="2"/><path d="M8 8h8" stroke="#F58B1F" stroke-width="2" stroke-linecap="round"/><path d="M8 12h8" stroke="#F58B1F" stroke-width="2" stroke-linecap="round"/></svg></div>
-          <p class="t">Kleine Zeitung</p><p class="s">Traueranzeigen</p>
-        </a>
-
-        <a class="tile" href="https://www.bestattungpein.at/traueranzeigen" target="_blank" rel="noopener">
-          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.4 7-10a7 7 0 1 0-14 0c0 5.6 7 10 7 10Z" stroke="#12141A" stroke-width="2"/><path d="M12 10v3" stroke="#F58B1F" stroke-width="2" stroke-linecap="round"/></svg></div>
-          <p class="t">Bestattung Pein</p><p class="s">St. Marein</p>
-        </a>
-
-        <a class="tile" href="https://www.bestattungradaschitz.at/online-parten/" target="_blank" rel="noopener">
-          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20h16" stroke="#12141A" stroke-width="2" stroke-linecap="round"/><path d="M8 20V8l4-3 4 3v12" stroke="#F58B1F" stroke-width="2" stroke-linejoin="round"/></svg></div>
-          <p class="t">Bestattung Radaschitz</p><p class="s">St. Stefan</p>
-        </a>
-
-        <a class="tile" href="https://www.bestattung-wolf.com/gedenkportal/" target="_blank" rel="noopener">
-          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6Z" fill="#F58B1F"/><path d="M5 21h14" stroke="#12141A" stroke-width="2" stroke-linecap="round"/></svg></div>
-          <p class="t">Bestattung Wolf</p><p class="s">Leibnitz</p>
-        </a>
-      </section>
-    </section>
-
-    <section id="page-trauerhilfe" class="page" aria-label="Trauerhilfe">
-      <div class="mini-card">
-        <h2>Trauerhilfe</h2>
-        <p>Hier können später Inhalte wie Begleitung, Hinweise oder weiterführende Informationen ergänzt werden.</p>
       </div>
     </section>
 
-    <section id="page-profil" class="page" aria-label="Profil">
-      <div class="mini-card">
-        <h2>Profil</h2>
-        <p>Hier können später persönliche Einstellungen, gemerkte Inhalte oder Notizen ergänzt werden.</p>
+    <!-- SEITE: PFARRBLATT -->
+    <section id="page-pfarrblatt" class="page">
+      <header class="header" style="padding-top: 4px; padding-bottom: 22px;">
+        <h2 class="title" style="font-size: 34px;">Pfarrblatt online</h2>
+        <p class="sub" style="letter-spacing: 1.2px;">Einblicke und Informationen</p>
+      </header>
+
+      <div class="card">
+        <h3 class="card-title">Pfarrblatt Einblicke</h3>
+        <p class="card-subtext">Das aktuelle Pfarrblatt mit Mitteilungen, Terminen und Berichten.</p>
+
+        <a href="https://www.einblicke.graz-seckau.at/pfarre/6048/pfarrblatteinblicke" target="_blank" rel="noopener noreferrer" class="quick-link">
+          <div class="quick-link-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="8" y1="13" x2="16" y2="13"></line>
+              <line x1="8" y1="17" x2="13" y2="17"></line>
+            </svg>
+          </div>
+          <div class="quick-link-text">
+            <span class="quick-link-title">Pfarrblatt öffnen</span>
+            <span class="quick-link-sub">Direkt zum Online-Pfarrblatt der Pfarre</span>
+          </div>
+        </a>
       </div>
     </section>
 
-    <section id="page-tv" class="page" aria-label="TV & Infos">
-      <div class="mini-card">
-        <h2>TV &amp; Infos</h2>
-        <p>Hier können später wichtige Links, Termine oder Hinweise gesammelt werden.</p>
+    <!-- SEITE: GRÄBERSUCHE -->
+    <section id="page-graeber" class="page">
+      <header class="header" style="padding-top: 4px; padding-bottom: 22px;">
+        <h2 class="title" style="font-size: 34px;">Friedhof Gräbersuche</h2>
+        <p class="sub" style="letter-spacing: 1.2px;">Suchen und Erinnern</p>
+      </header>
+
+      <div class="card">
+        <h3 class="card-title">Digitale Gräbersuche</h3>
+        <p class="card-subtext">Über die Gräbersuche können Ruhestätten und Friedhofsinformationen gefunden werden.</p>
+
+        <a href="https://app.stiller-begleiter.at/" target="_blank" rel="noopener noreferrer" class="quick-link">
+          <div class="quick-link-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="7"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <div class="quick-link-text">
+            <span class="quick-link-title">Gräbersuche öffnen</span>
+            <span class="quick-link-sub">Direkt zur Suche im stillen Begleiter</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- SEITE: TV-MESSEN -->
+    <section id="page-tv" class="page">
+      <header class="header" style="padding-top: 4px; padding-bottom: 22px;">
+        <h2 class="title" style="font-size: 34px;">TV-Messen</h2>
+        <p class="sub" style="letter-spacing: 1.2px;">Gottesdienste und Übertragungen</p>
+      </header>
+
+      <div class="card">
+        <h3 class="card-title">Gottesdienste online</h3>
+        <p class="card-subtext">Hier gelangen Sie direkt zur Übersicht der übertragenen Gottesdienste und Messen.</p>
+
+        <a href="https://www.gottesdienst.at/kirchenbeitrag/calendar_list_current_gottesdienst.siteswift?s=25698&t=f7b89c92ba03dcbf&ts=1772741326" target="_blank" rel="noopener noreferrer" class="quick-link">
+          <div class="quick-link-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+              <polyline points="17 2 12 7 7 2"></polyline>
+            </svg>
+          </div>
+          <div class="quick-link-text">
+            <span class="quick-link-title">TV-Messen öffnen</span>
+            <span class="quick-link-sub">Direkt zur aktuellen Gottesdienst-Übersicht</span>
+          </div>
+        </a>
       </div>
     </section>
   </main>
 
-  <nav class="bottom" aria-label="Navigation">
-    <div class="bottom-inner">
-      <div class="navbtn home active" data-page="bestattung" role="button" tabindex="0" aria-label="Bestattung (Start)">
-        <div class="bubble" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 7h14v12H5z" stroke="#12141A" stroke-width="2"/><path d="M8 10h8" stroke="#F58B1F" stroke-width="2" stroke-linecap="round"/></svg>
-        </div>
-        <span>Bestattung</span>
+  <!-- BOTTOM NAV -->
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a href="#" class="nav-item active" data-page="start">
+      <div class="nav-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        </svg>
       </div>
+      <span>Start</span>
+    </a>
 
-      <div class="navbtn" data-page="trauerhilfe" role="button" tabindex="0" aria-label="Trauerhilfe">
-        <div class="bubble" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M6 4h12v16H6z" stroke="#12141A" stroke-width="2"/><path d="M8 8h8" stroke="#F58B1F" stroke-width="2" stroke-linecap="round"/></svg>
-        </div>
-        <span>Trauerhilfe</span>
+    <a href="#" class="nav-item" data-page="termine">
+      <div class="nav-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
       </div>
+      <span>Termine</span>
+    </a>
 
-      <div class="navbtn" data-page="profil" role="button" tabindex="0" aria-label="Profil">
-        <div class="bubble" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="#12141A" stroke-width="2"/><path d="M4 21c1.7-4 5-6 8-6s6.3 2 8 6" stroke="#F58B1F" stroke-width="2" stroke-linecap="round"/></svg>
-        </div>
-        <span>Profil</span>
+    <a href="#" class="nav-item" data-page="pfarrblatt">
+      <div class="nav-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="8" y1="13" x2="16" y2="13"></line>
+          <line x1="8" y1="17" x2="13" y2="17"></line>
+        </svg>
       </div>
+      <span>Pfarrblatt</span>
+    </a>
 
-      <div class="navbtn" data-page="tv" role="button" tabindex="0" aria-label="TV und Infos">
-        <div class="bubble" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16v11H4z" stroke="#12141A" stroke-width="2"/><path d="M9 18l-2 3" stroke="#F58B1F" stroke-width="2" stroke-linecap="round"/><path d="M15 18l2 3" stroke="#F58B1F" stroke-width="2" stroke-linecap="round"/></svg>
-        </div>
-        <span>TV &amp; Infos</span>
+    <a href="#" class="nav-item" data-page="graeber">
+      <div class="nav-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
       </div>
-    </div>
+      <span>Gräber</span>
+    </a>
+
+    <a href="#" class="nav-item" data-page="tv">
+      <div class="nav-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+          <polyline points="17 2 12 7 7 2"></polyline>
+        </svg>
+      </div>
+      <span>TV-Messen</span>
+    </a>
   </nav>
 
   <script>
-    const keywordEl = document.getElementById("keyword");
-    const loadBtn = document.getElementById("load");
-    const clearBtn = document.getElementById("clear");
-    const box = document.getElementById("suggestions");
-    const list = document.getElementById("suggList");
+    const navItems = document.querySelectorAll('.nav-item');
+    const pages = document.querySelectorAll('.page');
 
-    const KERZEN_TEXTE = {
-      allgemein: [
-        "In liebevoller Erinnerung.",
-        "Für immer im Herzen.",
-        "Was bleibt, ist Liebe."
-      ],
-      liebe: [
-        "Deine Liebe bleibt für immer.",
-        "Was aus Liebe kam, bleibt im Herzen.",
-        "Liebe vergeht nie."
-      ],
-      oma: [
-        "Oma, du bleibst unvergessen.",
-        "In Liebe und Dankbarkeit für unsere Oma.",
-        "Deine Wärme bleibt in unseren Herzen."
-      ],
-      opa: [
-        "Opa, in dankbarer Erinnerung.",
-        "Deine Stärke bleibt unvergessen.",
-        "Für immer im Herzen, lieber Opa."
-      ],
-      mutter: [
-        "In Liebe und tiefer Dankbarkeit.",
-        "Mutterliebe bleibt für immer.",
-        "Du fehlst und bleibst doch bei uns."
-      ],
-      vater: [
-        "In stiller Dankbarkeit für alles.",
-        "Deine Liebe trägt uns weiter.",
-        "Vater, du bleibst unvergessen."
-      ],
-      danke: [
-        "Danke für alles, was du warst.",
-        "In Dankbarkeit und liebevoller Erinnerung.",
-        "Dankbar für die gemeinsame Zeit."
-      ],
-      erinnerung: [
-        "Die Erinnerung leuchtet weiter.",
-        "Erinnerungen bleiben für immer.",
-        "Was war, bleibt im Herzen."
-      ],
-      trost: [
-        "Möge Liebe Trost schenken.",
-        "In stiller Verbundenheit.",
-        "Die Erinnerung tröstet leise."
-      ]
-    };
+    navItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetPage = item.getAttribute('data-page');
 
-    function normalize(text) {
-      return (text || "")
-        .toLowerCase()
-        .trim()
-        .replace(/ä/g, "ae")
-        .replace(/ö/g, "oe")
-        .replace(/ü/g, "ue")
-        .replace(/ß/g, "ss");
-    }
+        pages.forEach(page => page.classList.remove('active'));
+        navItems.forEach(navItem => navItem.classList.remove('active'));
 
-    function pickTexts(keyword) {
-      const key = normalize(keyword);
+        document.getElementById(`page-${targetPage}`).classList.add('active');
+        item.classList.add('active');
 
-      if (KERZEN_TEXTE[key]) {
-        return KERZEN_TEXTE[key];
-      }
-
-      if (key.includes("oma")) return KERZEN_TEXTE.oma;
-      if (key.includes("opa")) return KERZEN_TEXTE.opa;
-      if (key.includes("mutter")) return KERZEN_TEXTE.mutter;
-      if (key.includes("vater")) return KERZEN_TEXTE.vater;
-      if (key.includes("liebe")) return KERZEN_TEXTE.liebe;
-      if (key.includes("danke")) return KERZEN_TEXTE.danke;
-      if (key.includes("erinner")) return KERZEN_TEXTE.erinnerung;
-      if (key.includes("trost")) return KERZEN_TEXTE.trost;
-
-      if (keyword.trim()) {
-        return [
-          `${keyword.trim()} bleibt im Herzen.`,
-          `In liebevoller Erinnerung an ${keyword.trim()}.`,
-          `Was bleibt, ist die Erinnerung an ${keyword.trim()}.`
-        ];
-      }
-
-      return KERZEN_TEXTE.allgemein;
-    }
-
-    function trimText(text) {
-      const clean = text.replace(/\s+/g, " ").trim();
-      return clean.length > 120 ? clean.slice(0, 117).trim() + "..." : clean;
-    }
-
-    function renderSuggestions(texts) {
-      list.innerHTML = "";
-
-      texts.slice(0, 3).forEach((text) => {
-        const finalText = trimText(text);
-
-        const item = document.createElement("div");
-        item.className = "sugg-item";
-
-        const p = document.createElement("p");
-        p.textContent = finalText;
-        item.appendChild(p);
-
-        const copyWrap = document.createElement("div");
-        copyWrap.className = "copy";
-
-        const copyBtn = document.createElement("button");
-        copyBtn.type = "button";
-        copyBtn.textContent = "KOPIEREN";
-        copyBtn.addEventListener("click", async () => {
-          try {
-            await navigator.clipboard.writeText(finalText);
-            copyBtn.textContent = "KOPIERT ✓";
-            setTimeout(() => {
-              copyBtn.textContent = "KOPIEREN";
-            }, 900);
-          } catch {
-            alert("Kopieren hat nicht funktioniert. Bitte Text manuell markieren.");
-          }
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
         });
-
-        copyWrap.appendChild(copyBtn);
-        item.appendChild(copyWrap);
-        list.appendChild(item);
-      });
-
-      box.classList.add("show");
-    }
-
-    loadBtn.addEventListener("click", () => {
-      const keyword = keywordEl.value;
-      const texts = pickTexts(keyword);
-      renderSuggestions(texts);
-    });
-
-    clearBtn.addEventListener("click", () => {
-      box.classList.remove("show");
-      list.innerHTML = "";
-    });
-
-    const navBtns = document.querySelectorAll(".navbtn");
-    const pages = {
-      bestattung: document.getElementById("page-bestattung"),
-      trauerhilfe: document.getElementById("page-trauerhilfe"),
-      profil: document.getElementById("page-profil"),
-      tv: document.getElementById("page-tv"),
-    };
-
-    function setPage(name) {
-      Object.values(pages).forEach((p) => p.classList.remove("active"));
-      pages[name].classList.add("active");
-      navBtns.forEach((b) => b.classList.toggle("active", b.dataset.page === name));
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    navBtns.forEach((btn) => {
-      const go = () => setPage(btn.dataset.page);
-      btn.addEventListener("click", go);
-      btn.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          go();
-        }
       });
     });
   </script>
