@@ -25,6 +25,7 @@
       --radius-md: 16px;
       --radius-sm: 14px;
     }
+
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
     body{
@@ -35,6 +36,7 @@
         var(--bg);
       color: var(--ink);
     }
+
     a{ color: inherit; text-decoration:none; }
     button, input{ font: inherit; }
 
@@ -84,10 +86,13 @@
       box-shadow: var(--shadow);
     }
 
-    /* HERO now clickable */
     .hero-wrap{ margin: 8px 0 14px; }
     .heroLink{ display:block; }
-    .heroLink:focus-visible{ outline: none; box-shadow: 0 0 0 4px rgba(245,139,31,.18); border-radius: var(--radius-xl); }
+    .heroLink:focus-visible{
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(245,139,31,.18);
+      border-radius: var(--radius-xl);
+    }
     .hero{
       background: var(--soft);
       border: 2px solid var(--orange);
@@ -95,7 +100,10 @@
       text-align:center;
       transition: transform .08s ease, box-shadow .08s ease;
     }
-    .hero:hover{ transform: translateY(-1px); box-shadow: 0 18px 34px rgba(0,0,0,.10); }
+    .hero:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 18px 34px rgba(0,0,0,.10);
+    }
     .hero-icon{
       width: 68px; height:68px;
       margin: 0 auto 10px;
@@ -141,7 +149,6 @@
       font-size: 12px;
     }
 
-    /* Help card */
     .help{
       padding: 16px;
       margin: 0 0 18px;
@@ -158,6 +165,7 @@
       background:#F4F6F8;
       border: 2px solid rgba(0,0,0,.10);
       display:flex; align-items:center; justify-content:center;
+      flex-shrink: 0;
     }
     .help-icon svg{ width: 22px; height:22px; }
     .help-title{
@@ -170,30 +178,24 @@
       text-transform: uppercase;
     }
 
-    .tabs{
-      display:flex;
-      gap: 10px;
+    .single-tab{
       margin-bottom: 12px;
     }
-    .tab{
-      flex:1;
+    .single-tab-label{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width: 120px;
       border-radius: var(--radius-sm);
-      padding: 12px 10px;
+      padding: 12px 14px;
       text-align:center;
       font-weight: 900;
       letter-spacing: 1.2px;
       font-size: 12px;
-      border: 2px solid rgba(0,0,0,.08);
-      background:#F4F6F8;
-      color:#9AA1A9;
-      cursor:pointer;
-      user-select:none;
-      white-space: pre-line;
-    }
-    .tab.active{
+      border: 2px solid #0B0B0D;
       background:#0B0B0D;
       color:#fff;
-      border-color:#0B0B0D;
+      white-space: pre-line;
     }
 
     .input{
@@ -206,6 +208,7 @@
       font-size: 15px;
       outline: none;
       background: #fff;
+      color: var(--ink);
     }
     .input:focus{
       border-color: rgba(245,139,31,.9);
@@ -223,6 +226,7 @@
       font-size: 12px;
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap: 8px;
     }
     .btn-primary{
@@ -232,16 +236,14 @@
     .btn-wide{
       width:100%;
       height: 56px;
-      justify-content:center;
     }
-    .btn[disabled]{ opacity:.55; cursor:not-allowed; }
 
     .note{
       margin-top: 10px;
       color: var(--muted);
       font-weight: 700;
       font-size: 12px;
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     .suggestions{
@@ -334,7 +336,10 @@
       min-height: 138px;
       transition: transform .08s ease, box-shadow .08s ease;
     }
-    .tile:hover{ transform: translateY(-1px); box-shadow: 0 16px 26px rgba(0,0,0,.08); }
+    .tile:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 16px 26px rgba(0,0,0,.08);
+    }
     .tile .ic{
       width: 52px; height:52px;
       border-radius: 16px;
@@ -356,7 +361,6 @@
       text-transform: uppercase;
     }
 
-    /* Bottom nav */
     .bottom{
       position: fixed;
       left: 0; right: 0; bottom: 0;
@@ -403,7 +407,6 @@
     .navbtn.active span{ color: var(--orange); }
     .navbtn.active .bubble{ background: var(--soft); border-color: var(--orange); }
 
-    /* BIG home button (Bestattung) */
     .navbtn.home{
       flex: 1.25;
       transform: translateY(-6px);
@@ -421,7 +424,6 @@
       letter-spacing: 1.2px;
     }
 
-    /* Pages */
     .page{ display:none; }
     .page.active{ display:block; }
 
@@ -438,7 +440,25 @@
       font-weight: 800;
       font-size: 24px;
     }
-    .mini-card p{ margin:0; color: var(--muted); font-weight:700; line-height:1.5; }
+    .mini-card p{
+      margin:0;
+      color: var(--muted);
+      font-weight:700;
+      line-height:1.5;
+    }
+
+    @media (max-width: 430px){
+      .app{
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      .title{
+        font-size: 30px;
+      }
+      .hero-name{
+        font-size: 30px;
+      }
+    }
   </style>
 </head>
 
@@ -456,7 +476,6 @@
       </header>
 
       <div class="hero-wrap">
-        <!-- Whole card is clickable -->
         <a class="heroLink" href="https://www.bestattung.grossschaedl.at/sterbefaelle/" target="_blank" rel="noopener" aria-label="Zu Bestattung Großschädl Sterbefälle">
           <section class="card hero">
             <div class="hero-icon" aria-hidden="true">
@@ -476,7 +495,7 @@
         </a>
       </div>
 
-      <section class="card help" id="hilfe" aria-label="Hilfe bei den Worten">
+      <section class="card help" id="hilfe" aria-label="Gedenkkerze">
         <div class="help-head">
           <div class="help-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none">
@@ -484,23 +503,21 @@
               <path d="M19 13l.9 2.7L23 16.5l-3.1.8L19 20l-.9-2.7L15 16.5l3.1-.8L19 13Z" fill="#12141A" opacity=".9"/>
             </svg>
           </div>
-          <h3 class="help-title">HILFE BEI DEN<br>WORTEN</h3>
+          <h3 class="help-title">GEDENK-<br>KERZE</h3>
         </div>
 
-        <div class="tabs" role="tablist" aria-label="Textarten">
-          <div class="tab active" role="tab" aria-selected="true" data-tab="kerze">GEDENK-<br>KERZE</div>
-          <div class="tab" role="tab" aria-selected="false" data-tab="kondolenzbuch">KONDOLENZ-<br>BUCH</div>
-          <div class="tab" role="tab" aria-selected="false" data-tab="worte">PERSÖNLICHE<br>WORTE</div>
+        <div class="single-tab" aria-hidden="true">
+          <div class="single-tab-label">GEDENK-<br>KERZE</div>
         </div>
 
         <input id="keyword" class="input" type="text" placeholder="Name oder Stichwort eingeben" autocomplete="off" />
 
         <div class="help-actions">
-          <button id="load" class="btn btn-primary btn-wide" type="button">VORSCHLÄGE LADEN</button>
+          <button id="load" class="btn btn-primary btn-wide" type="button">TEXTVORSCHLÄGE ANZEIGEN</button>
         </div>
 
         <div class="note" id="note">
-          Hinweis: Bei <b>Gedenkkerze</b> sind die Vorschläge auf <b>120 Zeichen</b> begrenzt.
+          Hinweis: Die Vorschläge sind für eine <b>Gedenkkerze</b> gedacht und kurz gehalten.
         </div>
 
         <div id="suggestions" class="suggestions" aria-live="polite">
@@ -560,21 +577,21 @@
     <section id="page-trauerhilfe" class="page" aria-label="Trauerhilfe">
       <div class="mini-card">
         <h2>Trauerhilfe</h2>
-        <p>Platzhalter – hier kannst du später Inhalte wie Trauerbegleitung, Ratgeber und Hilfsangebote ergänzen.</p>
+        <p>Hier können später Inhalte wie Begleitung, Hinweise oder weiterführende Informationen ergänzt werden.</p>
       </div>
     </section>
 
     <section id="page-profil" class="page" aria-label="Profil">
       <div class="mini-card">
         <h2>Profil</h2>
-        <p>Platzhalter – später Login, Favoriten, gespeicherte Texte, Einstellungen.</p>
+        <p>Hier können später persönliche Einstellungen, gemerkte Inhalte oder Notizen ergänzt werden.</p>
       </div>
     </section>
 
     <section id="page-tv" class="page" aria-label="TV & Infos">
       <div class="mini-card">
         <h2>TV &amp; Infos</h2>
-        <p>Platzhalter – später Termine, Hinweise, Links.</p>
+        <p>Hier können später wichtige Links, Termine oder Hinweise gesammelt werden.</p>
       </div>
     </section>
   </main>
@@ -612,52 +629,107 @@
   </nav>
 
   <script>
-    // ---------- Tabs ----------
-    const tabs = document.querySelectorAll(".tab");
-    let activeTab = "kerze";
-
-    function updateNote(){
-      const note = document.getElementById("note");
-      if(activeTab === "kerze"){
-        note.innerHTML = 'Hinweis: Bei <b>Gedenkkerze</b> sind die Vorschläge auf <b>120 Zeichen</b> begrenzt.';
-      } else {
-        note.textContent = "Hinweis: Es werden maximal 3 würdige Textvorschläge erstellt.";
-      }
-    }
-
-    tabs.forEach(t => {
-      t.addEventListener("click", () => {
-        tabs.forEach(x => { x.classList.remove("active"); x.setAttribute("aria-selected","false"); });
-        t.classList.add("active");
-        t.setAttribute("aria-selected","true");
-        activeTab = t.dataset.tab;
-        updateNote();
-      });
-    });
-    updateNote();
-
-    // ---------- KI Vorschläge ----------
     const keywordEl = document.getElementById("keyword");
     const loadBtn = document.getElementById("load");
     const clearBtn = document.getElementById("clear");
     const box = document.getElementById("suggestions");
     const list = document.getElementById("suggList");
 
-    function setLoading(isLoading){
-      loadBtn.disabled = isLoading;
-      loadBtn.textContent = isLoading ? "ERSTELLE VORSCHLÄGE …" : "VORSCHLÄGE LADEN";
+    const KERZEN_TEXTE = {
+      allgemein: [
+        "In liebevoller Erinnerung.",
+        "Für immer im Herzen.",
+        "Was bleibt, ist Liebe."
+      ],
+      liebe: [
+        "Deine Liebe bleibt für immer.",
+        "Was aus Liebe kam, bleibt im Herzen.",
+        "Liebe vergeht nie."
+      ],
+      oma: [
+        "Oma, du bleibst unvergessen.",
+        "In Liebe und Dankbarkeit für unsere Oma.",
+        "Deine Wärme bleibt in unseren Herzen."
+      ],
+      opa: [
+        "Opa, in dankbarer Erinnerung.",
+        "Deine Stärke bleibt unvergessen.",
+        "Für immer im Herzen, lieber Opa."
+      ],
+      mutter: [
+        "In Liebe und tiefer Dankbarkeit.",
+        "Mutterliebe bleibt für immer.",
+        "Du fehlst und bleibst doch bei uns."
+      ],
+      vater: [
+        "In stiller Dankbarkeit für alles.",
+        "Deine Liebe trägt uns weiter.",
+        "Vater, du bleibst unvergessen."
+      ],
+      danke: [
+        "Danke für alles, was du warst.",
+        "In Dankbarkeit und liebevoller Erinnerung.",
+        "Dankbar für die gemeinsame Zeit."
+      ],
+      erinnerung: [
+        "Die Erinnerung leuchtet weiter.",
+        "Erinnerungen bleiben für immer.",
+        "Was war, bleibt im Herzen."
+      ],
+      trost: [
+        "Möge Liebe Trost schenken.",
+        "In stiller Verbundenheit.",
+        "Die Erinnerung tröstet leise."
+      ]
+    };
+
+    function normalize(text) {
+      return (text || "")
+        .toLowerCase()
+        .trim()
+        .replace(/ä/g, "ae")
+        .replace(/ö/g, "oe")
+        .replace(/ü/g, "ue")
+        .replace(/ß/g, "ss");
     }
 
-    function trimTo120(str){
-      const s = (str || "").trim().replace(/\s+/g," ");
-      if(s.length <= 120) return s;
-      return s.slice(0, 119).replace(/\s+\S*$/,"").trim() + "…";
+    function pickTexts(keyword) {
+      const key = normalize(keyword);
+
+      if (KERZEN_TEXTE[key]) {
+        return KERZEN_TEXTE[key];
+      }
+
+      if (key.includes("oma")) return KERZEN_TEXTE.oma;
+      if (key.includes("opa")) return KERZEN_TEXTE.opa;
+      if (key.includes("mutter")) return KERZEN_TEXTE.mutter;
+      if (key.includes("vater")) return KERZEN_TEXTE.vater;
+      if (key.includes("liebe")) return KERZEN_TEXTE.liebe;
+      if (key.includes("danke")) return KERZEN_TEXTE.danke;
+      if (key.includes("erinner")) return KERZEN_TEXTE.erinnerung;
+      if (key.includes("trost")) return KERZEN_TEXTE.trost;
+
+      if (keyword.trim()) {
+        return [
+          `${keyword.trim()} bleibt im Herzen.`,
+          `In liebevoller Erinnerung an ${keyword.trim()}.`,
+          `Was bleibt, ist die Erinnerung an ${keyword.trim()}.`
+        ];
+      }
+
+      return KERZEN_TEXTE.allgemein;
     }
 
-    function renderSuggestions(texts){
+    function trimText(text) {
+      const clean = text.replace(/\s+/g, " ").trim();
+      return clean.length > 120 ? clean.slice(0, 117).trim() + "..." : clean;
+    }
+
+    function renderSuggestions(texts) {
       list.innerHTML = "";
-      (texts || []).slice(0,3).forEach((text) => {
-        const finalText = (activeTab === "kerze") ? trimTo120(text) : text;
+
+      texts.slice(0, 3).forEach((text) => {
+        const finalText = trimText(text);
 
         const item = document.createElement("div");
         item.className = "sugg-item";
@@ -668,6 +740,7 @@
 
         const copyWrap = document.createElement("div");
         copyWrap.className = "copy";
+
         const copyBtn = document.createElement("button");
         copyBtn.type = "button";
         copyBtn.textContent = "KOPIEREN";
@@ -675,69 +748,33 @@
           try {
             await navigator.clipboard.writeText(finalText);
             copyBtn.textContent = "KOPIERT ✓";
-            setTimeout(() => (copyBtn.textContent = "KOPIEREN"), 900);
-          } catch (e) {
-            alert("Kopieren hat nicht funktioniert. Markiere den Text manuell.");
+            setTimeout(() => {
+              copyBtn.textContent = "KOPIEREN";
+            }, 900);
+          } catch {
+            alert("Kopieren hat nicht funktioniert. Bitte Text manuell markieren.");
           }
         });
+
         copyWrap.appendChild(copyBtn);
         item.appendChild(copyWrap);
-
         list.appendChild(item);
       });
 
       box.classList.add("show");
     }
 
-    async function fetchAiSuggestions(){
-      const keyword = keywordEl.value.trim();
-      setLoading(true);
-
-      try{
-        const res = await fetch("/api/generate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            tab: activeTab,           // kerze | kondolenzbuch | worte
-            keyword: keyword,         // name oder stichwort
-            max: 3,
-            maxChars: activeTab === "kerze" ? 120 : null
-          })
-        });
-
-        if(!res.ok){
-          const t = await res.text();
-          throw new Error(t || "Fehler beim KI-Request");
-        }
-
-        const data = await res.json();
-        const texts = Array.isArray(data.texts) ? data.texts : [];
-        if(texts.length === 0){
-          renderSuggestions(["Keine Vorschläge erhalten. Bitte anderes Stichwort probieren."]);
-        } else {
-          renderSuggestions(texts);
-        }
-      }catch(err){
-        // Fallback (wenn Function noch nicht eingerichtet ist)
-        renderSuggestions([
-          "KI ist noch nicht verbunden. Bitte Netlify Function /api/generate einrichten.",
-          "Danach erstellt die Seite automatisch würdige Texte nach Name/Stichwort.",
-          "Wenn du willst, sag 'fertig', dann checken wir gemeinsam die Einrichtung."
-        ]);
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadBtn.addEventListener("click", fetchAiSuggestions);
+    loadBtn.addEventListener("click", () => {
+      const keyword = keywordEl.value;
+      const texts = pickTexts(keyword);
+      renderSuggestions(texts);
+    });
 
     clearBtn.addEventListener("click", () => {
       box.classList.remove("show");
       list.innerHTML = "";
     });
 
-    // ---------- Bottom navigation ----------
     const navBtns = document.querySelectorAll(".navbtn");
     const pages = {
       bestattung: document.getElementById("page-bestattung"),
@@ -746,18 +783,21 @@
       tv: document.getElementById("page-tv"),
     };
 
-    function setPage(name){
-      Object.values(pages).forEach(p => p.classList.remove("active"));
+    function setPage(name) {
+      Object.values(pages).forEach((p) => p.classList.remove("active"));
       pages[name].classList.add("active");
-      navBtns.forEach(b => b.classList.toggle("active", b.dataset.page === name));
+      navBtns.forEach((b) => b.classList.toggle("active", b.dataset.page === name));
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    navBtns.forEach(btn => {
+    navBtns.forEach((btn) => {
       const go = () => setPage(btn.dataset.page);
       btn.addEventListener("click", go);
       btn.addEventListener("keydown", (e) => {
-        if(e.key === "Enter" || e.key === " "){ e.preventDefault(); go(); }
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          go();
+        }
       });
     });
   </script>
