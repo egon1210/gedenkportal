@@ -7,6 +7,8 @@
   <meta name="description" content="Gedenk-Portal mit Pfarrterminen, Pfarrblatt, Gräbersuche und TV-Messen." />
   <meta name="theme-color" content="#f6f1ea" />
 
+  <link rel="manifest" href="/gedenkportal/manifest.webmanifest">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
@@ -776,6 +778,16 @@
       });
     });
   </script>
+  <script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js")
+        .then(() => console.log("Service Worker registriert"))
+        .catch(err => console.log("Service Worker Fehler:", err));
+    });
+  }
+</script>
 </body>
 </html>
+
 
