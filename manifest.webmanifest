@@ -1,0 +1,22 @@
+{
+  "name": "Gedenk-Portal St. Marein",
+  "short_name": "Gedenk-Portal",
+  "start_url": "/gedenkportal/",
+  "scope": "/gedenkportal/",
+  "display": "standalone",
+  "background_color": "#f6f1ea",
+  "theme_color": "#f6f1ea",
+  "lang": "de",
+  "icons": [
+    {
+      "src": "/gedenkportal/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/gedenkportal/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
